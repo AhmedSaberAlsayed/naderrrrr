@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\SupCategory;
-use App\Http\Requests\StoreSupCategoryRequest;
-use App\Http\Requests\UpdateSupCategoryRequest;
+use App\Models\Category;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
 
-class SupCategoryController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +28,7 @@ class SupCategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreSupCategoryRequest $request)
+    public function store(StoreCategoryRequest $request)
     {
         //
     }
@@ -35,7 +36,7 @@ class SupCategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(SupCategory $supCategory)
+    public function show(Category $category)
     {
         //
     }
@@ -43,7 +44,7 @@ class SupCategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(SupCategory $supCategory)
+    public function edit(Category $category)
     {
         //
     }
@@ -51,7 +52,7 @@ class SupCategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateSupCategoryRequest $request, SupCategory $supCategory)
+    public function update(UpdateCategoryRequest $request, Category $category)
     {
         //
     }
@@ -59,7 +60,7 @@ class SupCategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(SupCategory $supCategory)
+    public function destroy(Category $category)
     {
         //
     }

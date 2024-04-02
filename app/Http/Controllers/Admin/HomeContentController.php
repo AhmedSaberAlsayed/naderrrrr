@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\News;
-use App\Http\Requests\StoreNewsRequest;
-use App\Http\Requests\UpdateNewsRequest;
+use App\Models\HomeContent;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreHomeContentRequest;
+use App\Http\Requests\UpdateHomeContentRequest;
 
-class NewsController extends Controller
+class HomeContentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +28,7 @@ class NewsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreNewsRequest $request)
+    public function store(StoreHomeContentRequest $request)
     {
         //
     }
@@ -35,7 +36,7 @@ class NewsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(News $news)
+    public function show(HomeContent $homeContent)
     {
         //
     }
@@ -43,7 +44,7 @@ class NewsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(News $news)
+    public function edit(HomeContent $homeContent)
     {
         //
     }
@@ -51,7 +52,7 @@ class NewsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateNewsRequest $request, News $news)
+    public function update(UpdateHomeContentRequest $request, HomeContent $homeContent)
     {
         //
     }
@@ -59,7 +60,7 @@ class NewsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(News $news)
+    public function destroy(HomeContent $homeContent)
     {
         //
     }

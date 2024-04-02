@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\HomeContent;
-use App\Http\Requests\StoreHomeContentRequest;
-use App\Http\Requests\UpdateHomeContentRequest;
+use App\Models\SupCategory;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreSupCategoryRequest;
+use App\Http\Requests\UpdateSupCategoryRequest;
 
-class HomeContentController extends Controller
+class SupCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +28,7 @@ class HomeContentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreHomeContentRequest $request)
+    public function store(StoreSupCategoryRequest $request)
     {
         //
     }
@@ -35,7 +36,7 @@ class HomeContentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(HomeContent $homeContent)
+    public function show(SupCategory $supCategory)
     {
         //
     }
@@ -43,7 +44,7 @@ class HomeContentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(HomeContent $homeContent)
+    public function edit(SupCategory $supCategory)
     {
         //
     }
@@ -51,7 +52,7 @@ class HomeContentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateHomeContentRequest $request, HomeContent $homeContent)
+    public function update(UpdateSupCategoryRequest $request, SupCategory $supCategory)
     {
         //
     }
@@ -59,7 +60,7 @@ class HomeContentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(HomeContent $homeContent)
+    public function destroy(SupCategory $supCategory)
     {
         //
     }
