@@ -17,16 +17,22 @@
         @csrf
         @method('patch')
 
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
+        <div class="mb-3">
+            <x-input-label for="exampleInputName1"  class="form-label" :value="__('Name')" />
+            <x-text-input id="exampleInputName1" name="name" type="text" class="form-control" :value="old('name', $user->name)" required autofocus autocomplete="name" />
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
+                </div>
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
+
+
+        <div class="mb-3">
+            <x-input-label for="exampleInputEmail1" class="form-label" :value="__('Email')" />
+            <x-text-input id="exampleInputEmail1" class="form-control" name="email" type="email" :value="old('email', $user->email)" required autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
+                </div>
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
                 <div>
@@ -48,7 +54,7 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            <x-primary-button class="btn btn-primary">{{ __('Save') }}</x-primary-button>
 
             @if (session('status') === 'profile-updated')
                 <p

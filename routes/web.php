@@ -14,12 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+// })->name('dashboardHome');
+
+
+
 Route::get('/', function () {
     return view('Dashboard/index');
-})->name('dashboardHome');
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

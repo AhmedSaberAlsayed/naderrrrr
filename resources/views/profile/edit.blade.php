@@ -1,29 +1,59 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+<!DOCTYPE html>
+<html lang="en" >
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
+@include('Dashboard\layouts\HeadDashboard')
+<body>
+    <div class="container-fluid position-relative d-flex p-0">
+        
+        <!-- Spinner Start -->
+        @include('Dashboard\layouts\Spinner')
+        <!-- Spinner End -->
+
+        <!-- Sidebar Start -->
+        @include('Dashboard\layouts\Sidebar')
+        <!-- Sidebar End -->
+
+        <!-- Content Start -->
+        <div class="content">
+            
+            <!-- Navbar Start -->
+            @include('Dashboard\layouts\Navbar')
+            <!-- Navbar End -->
+
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-12 col-xl-12">
+                        
+                        
+                        <div class="bg-secondary rounded h-100 p-4">
+                            @include('profile.partials.update-profile-information-form')
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-xl-12">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            @include('profile.partials.update-password-form')
+                        </div>
+                    </div>
+
+
+
+                        
                 </div>
             </div>
 
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
-            </div>
 
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
-                </div>
-            </div>
+                
+            <!-- Footer Start -->
+            @include('Dashboard\layouts\Footer')
+            <!-- Footer End -->
         </div>
+        <!-- Content End -->
     </div>
-</x-app-layout>
+
+    {{-- js script --}}
+    @include('Dashboard\layouts\JSScript')
+    
+</body>
+
+</html>
