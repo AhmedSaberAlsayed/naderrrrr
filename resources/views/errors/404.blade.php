@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-@includef('Dashboard\layouts\HeadDashboard')
+@include('Dashboard\layouts\HeadDashboard')
 
 <body>
         <!-- Spinner Start -->
