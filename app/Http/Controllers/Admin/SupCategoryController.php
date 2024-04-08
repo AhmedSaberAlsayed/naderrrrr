@@ -6,6 +6,7 @@ use App\Models\SupCategory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSupCategoryRequest;
 use App\Http\Requests\UpdateSupCategoryRequest;
+use Illuminate\Http\Request;
 
 class SupCategoryController extends Controller
 {
@@ -14,7 +15,8 @@ class SupCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $Sup_Categories= SupCategory::get();
+        return view("Sup_Categories.IndexSup_Category",compact("Sup_Categories"));
     }
 
     /**
@@ -22,7 +24,7 @@ class SupCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('Sup_Categories.CreateSup_Category');
     }
 
     /**
@@ -30,7 +32,12 @@ class SupCategoryController extends Controller
      */
     public function store(StoreSupCategoryRequest $request)
     {
-        //
+        SupCategory::create([
+            'title'=> $request->title,
+            'categoryID'=> $request->categoryID,
+
+        ]);
+        return redirect()->route("Sup_category.index")->with("success","category was added");
     }
 
     /**
@@ -44,9 +51,10 @@ class SupCategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(SupCategory $supCategory)
+    public function edit(Request $request)
     {
-        //
+        $Sup_Category = SupCategory::where('id',$request->Sup_category)->first();
+        return view('Sup_Categories.EditSup_Category',compact('Sup_Category'));
     }
 
     /**
@@ -54,14 +62,25 @@ class SupCategoryController extends Controller
      */
     public function update(UpdateSupCategoryRequest $request, SupCategory $supCategory)
     {
-        //
+        $SupCategory=SupCategory::where('id',$request->Sup_category)->first();
+        $SupCategory->update([
+            'title'=> $request->title,
+            'categoryID'=> $request->categoryID,
+        ]);
+        return redirect()->route("Sup_category.index")->with("success","category was added");
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(SupCategory $supCategory)
+    public function destroy( $SupCategory_id )
     {
-        //
+        $Category= SupCategory::find( $SupCategory_id );
+
+
+     $Category->delete();
+     session()->flash('done','Sup_category was deleted');
+     return redirect()->route('Sup_category.index');
     }
 }

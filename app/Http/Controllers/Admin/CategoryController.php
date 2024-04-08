@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
+use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -14,7 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories= Category::get();
+        return view("categories.IndexCategory",compact("categories"));
     }
 
     /**
@@ -22,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('categories.CreateCategory');
     }
 
     /**
@@ -30,8 +32,13 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        //
-    }
+        Category::create([
+            'title'=> $request->title,
+
+        ]);
+        return redirect()->route("category.index")->with("success","category was added");
+}
+
 
     /**
      * Display the specified resource.
@@ -44,9 +51,10 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $category)
+    public function edit(Request $request)
     {
-        //
+        $category = Category::where('id',$request->category_id)->first();
+        return view('categories.EditCategory',compact('category'));
     }
 
     /**
@@ -54,14 +62,23 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        $category=Category::where('id',$request->category_id)->first();
+
+
+        $category->update([
+            'title'=> $request->title,
+        ]);
+        return redirect(route('category.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy($category_id)
     {
-        //
+        $Category= Category::find( $category_id );
+     $Category->delete();
+     session()->flash('done','note was deleted');
+     return redirect()->route('category.index');
     }
 }
