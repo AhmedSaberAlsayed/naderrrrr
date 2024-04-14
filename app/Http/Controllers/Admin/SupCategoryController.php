@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Category;
 use App\Models\SupCategory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSupCategoryRequest;
@@ -24,7 +25,9 @@ class SupCategoryController extends Controller
      */
     public function create()
     {
-        return view('Sup_Categories.CreateSup_Category');
+        $categories=Category::get();
+        // dd($categories[0]);
+        return view('Sup_Categories.CreateSup_Category',compact('categories'));
     }
 
     /**
@@ -67,7 +70,7 @@ class SupCategoryController extends Controller
             'title'=> $request->title,
             'categoryID'=> $request->categoryID,
         ]);
-        return redirect()->route("Sup_category.index")->with("success","category was added");
+        return redirect()->route("Sup_category.index")->with("success","Sup_Category was added");
 
     }
 

@@ -14,7 +14,8 @@
             </div>
         </div>
         <div class="navbar-nav w-100">
-            <a href="{{route('dashboard')}}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>   لوحة القيادة</a>
+            <a href="{{route('dashboard')}}" class="nav-item nav-link <?php if($_SERVER['REQUEST_URI']=='/'){ echo 'active';} ?>"><i class="fa fa-tachometer-alt me-2"></i>   لوحة القيادة</a>
+            <a href="{{route('Sup_category.create')}}" class="nav-item nav-link <?php if($_SERVER['REQUEST_URI']=='/createSup_category'){ echo 'active';} ?> "><i class="fa fa-tachometer-alt me-2"></i>انشاء عناوين فرعيه </a>
         </div>
     </nav>
 </div>

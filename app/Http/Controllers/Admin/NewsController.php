@@ -98,7 +98,7 @@ class NewsController extends Controller
         $News= News::find( $News_id );
         unlink(public_path($News->image_path));
         $News->delete();
-        session()->flash('done','note was deleted');
+        session()->flash('done','News was deleted');
         return redirect()->route('News.index');
     }
 }
