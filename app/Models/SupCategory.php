@@ -11,4 +11,8 @@ class SupCategory extends Model
 
     protected $fillable = ['title','categoryID'];
 
+    public function News(){
+        return $this->belongsTo(News::class);
+
+    }
 }

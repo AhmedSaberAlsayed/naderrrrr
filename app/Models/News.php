@@ -23,6 +23,12 @@ class News extends Model
     public function User(){
         return $this->hasMany(User::class);
     }
+    public function Category(){
+        return $this->hasMany(Category::class);
+    }
+    public function SupCategory(){
+        return $this->hasMany(SupCategory::class);
+    }
 
     public function getImagepathAttribute($value){
         return 'images/Imag_Nwes/' .$value ;

@@ -15,7 +15,31 @@
         </div>
         <div class="navbar-nav w-100">
             <a href="{{route('dashboard')}}" class="nav-item nav-link <?php if($_SERVER['REQUEST_URI']=='/'){ echo 'active';} ?>"><i class="fa fa-tachometer-alt me-2"></i>   لوحة القيادة</a>
-            <a href="{{route('Sup_category.create')}}" class="nav-item nav-link <?php if($_SERVER['REQUEST_URI']=='/createSup_category'){ echo 'active';} ?> "><i class="fa fa-tachometer-alt me-2"></i>انشاء عناوين فرعيه </a>
+            <div class="nav-item dropdown">
+                <a href="{{route('category.index')}}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-laptop me-2"></i>العناوين الرئيسيه</a>
+                <div class="dropdown-menu bg-transparent border-0">
+                    <a href="{{route('category.create')}}" class="dropdown-item">انشاء عناوين</a>
+                    <a href="{{route('category.index')}}" class="dropdown-item">عرض عناوين</a>
+
+                </div>
+            </div>
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-laptop me-2"></i>العناوين الفرعيه</a>
+                <div class="dropdown-menu bg-transparent border-0">
+                    <a href="{{route('Sup_category.create')}}" class="dropdown-item">انشاء عناوين فرعيه</a>
+                    <a href="{{route('Sup_category.index')}}" class="dropdown-item">عرض عناوين فرعيه</a>
+
+                </div>
+            </div>
+            <div class="nav-item dropdown">
+                <a href="{{route('News.index')}}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-laptop me-2"></i>الاخبار </a>
+                <div class="dropdown-menu bg-transparent border-0">
+                    <a href="{{route('News.create')}}" class="dropdown-item">انشاء اخبار</a>
+                    <a href="{{route('News.index')}}" class="dropdown-item">عرض اخبار</a>
+
+                </div>
+            </div>
+
         </div>
     </nav>
 </div>

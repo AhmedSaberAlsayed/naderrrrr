@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\News;
+use App\Models\Category;
+use Illuminate\Http\Request;
 use App\Http\Traits\ImagesTrait;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreNewsRequest;
 use App\Http\Requests\UpdateNewsRequest;
-use Illuminate\Http\Request;
+use App\Models\SupCategory;
 
 class NewsController extends Controller
 {
@@ -26,7 +28,10 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('News.CreateNews');
+        $categories=Category::get();
+        $Sup_categories=SupCategory::get();
+
+        return view('News.CreateNews',compact(['categories','Sup_categories']));
     }
 
     /**
@@ -63,8 +68,10 @@ class NewsController extends Controller
      */
     public function edit(Request $request)
     {
+        $categories=Category::get();
+        $Sup_categories=SupCategory::with('News')->get();
         $News = News::where('id',$request->News_id)->first();
-        return view('News.EditNews',compact('News'));
+        return view('News.EditNews',compact(['News','categories','Sup_categories']));
     }
 
     /**

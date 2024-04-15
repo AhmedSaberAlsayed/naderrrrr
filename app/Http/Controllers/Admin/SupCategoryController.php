@@ -57,7 +57,8 @@ class SupCategoryController extends Controller
     public function edit(Request $request)
     {
         $Sup_Category = SupCategory::where('id',$request->Sup_category)->first();
-        return view('Sup_Categories.EditSup_Category',compact('Sup_Category'));
+        $categories=Category::get();
+        return view('Sup_Categories.EditSup_Category',compact(['Sup_Category','categories']));
     }
 
     /**
