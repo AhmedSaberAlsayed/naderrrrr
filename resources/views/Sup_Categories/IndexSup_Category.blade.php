@@ -30,14 +30,13 @@
             <div class="bg-secondary rounded h-100 p-4">
                 <h6 class="mb-4">Responsive Table</h6>
                 <div class="table-responsive">
-                    <table class="table">
+                    <table class="table text-center">
                         <thead>
                             <tr>
                                 <th>#</th>
                                 <th>SupCategory_Name</th>
                                 <th>categoryID</th>
-                                <th>Delete</th>
-                                <th>Update</th>
+                                <th colspan="2">action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,21 +45,21 @@
                                 <td> {{ $Sup_category->id}}</td>
                                 <td> {{ $Sup_category->title}}</td>
                                 <td> {{ $Sup_category->categoryID}}</td>
-                                <td>
-                                      <form  action="{{ route('Sup_category.delete',$Sup_category->id) }}" method="POST">
-                                    @csrf
-                                    {{-- <input type="hidden" name="category_id" value="{{ $category->id }}"> --}}
-                                    <button class="btn btn-primary" type="submit">حذف</button>
-                                </form>
-                                </td>
+
                                 <td>
                                       <form action="{{ route('Sup_category.edit')}}" method="get">
                                         @csrf
                                          <input type="hidden" name="Sup_category" value="{{ $Sup_category->id }}">
-                                        <button class="btn btn-primary" type="submit">تعديل</button>
+                                        <button class="btn btn-light" type="submit">تعديل</button>
                                      </form>
-
                                 </td>
+                                <td>
+                                    <form  action="{{ route('Sup_category.delete',$Sup_category->id) }}" method="POST">
+                                  @csrf
+                                  {{-- <input type="hidden" name="category_id" value="{{ $category->id }}"> --}}
+                                  <button class="btn btn-primary" type="submit">حذف</button>
+                              </form>
+                              </td>
                             </tr>
                              @endforeach
                         </tbody>
