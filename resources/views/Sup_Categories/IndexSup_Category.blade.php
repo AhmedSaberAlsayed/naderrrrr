@@ -34,10 +34,10 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>SupCategory_Name</th>
-                                <th>categoryID</th>
-                                <th>Delete</th>
-                                <th>Update</th>
+                                <th>العنوان الفرعي</th>
+                                <th>العنوان الرئيسي</th>
+                                <th>حذف</th>
+                                <th>تعديل</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -45,11 +45,10 @@
                             <tr>
                                 <td> {{ $Sup_category->id}}</td>
                                 <td> {{ $Sup_category->title}}</td>
-                                <td> {{ $Sup_category->categoryID}}</td>
+                                <td> {{ $Sup_category->category->title}}</td>
                                 <td>
                                       <form  action="{{ route('Sup_category.delete',$Sup_category->id) }}" method="POST">
                                     @csrf
-                                    {{-- <input type="hidden" name="category_id" value="{{ $category->id }}"> --}}
                                     <button class="btn btn-primary" type="submit">حذف</button>
                                 </form>
                                 </td>

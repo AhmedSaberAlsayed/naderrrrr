@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class News extends Model
 {
@@ -21,16 +21,16 @@ class News extends Model
 ];
 
     public function User(){
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class,'createdBy');
     }
     public function Category(){
-        return $this->hasMany(Category::class);
+        return $this->belongsTo(Category::class,'categoryID');
     }
     public function SupCategory(){
-        return $this->hasMany(SupCategory::class);
+        return $this->belongsTo(SupCategory::class,'supCategoryID');
     }
 
     public function getImagepathAttribute($value){
-        return 'images/Imag_Nwes/' .$value ;
+        return 'images/Imag_Nwes/' .$value;
     }
 }

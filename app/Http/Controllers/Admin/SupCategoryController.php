@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Category;
 use App\Models\SupCategory;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSupCategoryRequest;
 use App\Http\Requests\UpdateSupCategoryRequest;
-use Illuminate\Http\Request;
 
 class SupCategoryController extends Controller
 {
@@ -16,7 +16,8 @@ class SupCategoryController extends Controller
      */
     public function index()
     {
-        $Sup_Categories= SupCategory::get();
+        $Sup_Categories= SupCategory::with('category')->get();
+        // dd($Sup_Categories[0]->category);
         return view("Sup_Categories.IndexSup_Category",compact("Sup_Categories"));
     }
 
@@ -26,7 +27,6 @@ class SupCategoryController extends Controller
     public function create()
     {
         $categories=Category::get();
-        // dd($categories[0]);
         return view('Sup_Categories.CreateSup_Category',compact('categories'));
     }
 
