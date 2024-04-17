@@ -13,7 +13,7 @@
 
         {{-- @dd($categories) --}}
         <!-- Spinner Start -->
-        @include('Dashboard\layouts\Spinner')
+        {{-- @include('Dashboard\layouts\Spinner') --}}
         <!-- Spinner End -->
 
         <!-- Sidebar Start -->
@@ -77,8 +77,10 @@
                                 <option value="" disabled selected>Choose a category</option>
                                 @foreach ($categories as $Category)
                                 <option value="{{$Category->id}}">{{$Category->title}}</option>
+              
                                  @endforeach
                             </select>
+                            {{ $Category->id}}
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -87,7 +89,11 @@
                             <select name="supCategoryID" placeholder="supCategoryID" class="form-select mb-3" aria-label="Default select example">
                                 <option value="" disabled selected>Choose a Sup_category</option>
                                 @foreach ($Sup_categories as $Sup_category)
-                                <option value="{{$Sup_category->id}}">{{$Sup_category->title}}</option>
+                                {{-- @dd($Sup_category->category) --}}
+                                {{-- @if ($Sup_category->category->id == $Category->id) --}}
+                                    
+                                <option value="{{$Sup_category->id}}"> {{$Sup_category->title}}</option>
+                                {{-- @endif --}}
                                  @endforeach
                             </select>
                         </div>

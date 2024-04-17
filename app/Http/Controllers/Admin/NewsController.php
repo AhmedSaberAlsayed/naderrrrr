@@ -29,7 +29,8 @@ class NewsController extends Controller
     public function create()
     {
         $categories=Category::get();
-        $Sup_categories=SupCategory::get();
+        $Sup_categories=SupCategory::with('category')->get();
+        // dd($Sup_categories);
 
         return view('News.CreateNews',compact(['categories','Sup_categories']));
     }

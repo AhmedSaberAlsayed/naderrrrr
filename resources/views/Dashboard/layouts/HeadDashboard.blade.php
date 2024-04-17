@@ -6,7 +6,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="test52.png" rel="icon">
+    <link href="logo.png" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,4 +26,6 @@
 
     <!-- Template Stylesheet -->
     <link href="dashboard/css/style.css" rel="stylesheet">
+
+    
 </head>
