@@ -23,12 +23,15 @@ use App\Http\Controllers\NewsPage\NewsWebSiteController;
 // })->name('dashboardHome');
 
 
+Route::get('/', [NewsWebSiteController::class, 'index'])->name('NewsPage.index');
 
-Route::get('/Dashboard', function () {
+
+
+Route::get('/thedashboard', function () {
     return view('Dashboard/index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+// Route::middleware('auth')->group(function () {
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -60,7 +63,7 @@ Route::get('editNews',[NewsController::class, 'edit'])->name('News.edit');
 Route::post('updateNews',[NewsController::class, 'update'])->name('News.update');
 Route::post('deleteNewsy/{id}',[NewsController::class, 'destroy'])->name('News.delete');
 require __DIR__.'/auth.php';
-});
+// });
 
 
 
@@ -70,7 +73,6 @@ require __DIR__.'/auth.php';
 
 
 
-Route::get('/', [NewsWebSiteController::class, 'index'])->name('NewsPage.index');
 
 
 

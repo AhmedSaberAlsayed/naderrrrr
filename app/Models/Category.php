@@ -19,10 +19,5 @@ class Category extends Model
     }
     public function SupCategory(){
         return $this->hasMany(SupCategory::class,'categoryID');
-<<<<<<< HEAD
-=======
-
-
->>>>>>> bed11dd37a79d0070141e126583215f96b47e313
     }
 }

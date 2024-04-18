@@ -33,17 +33,10 @@
                     <table class="table text-center">
                         <thead>
                             <tr>
-                                <th>#</th>
-<<<<<<< HEAD
-                                <th>SupCategory_Name</th>
-                                <th>categoryID</th>
-                                <th colspan="2">action</th>
-=======
                                 <th>العنوان الفرعي</th>
                                 <th>العنوان الرئيسي</th>
                                 <th>حذف</th>
                                 <th>تعديل</th>
->>>>>>> 204e6bb5e07d424bcc066b3dc934aa48d5d6352f
                             </tr>
                         </thead>
                         <tbody>
@@ -51,10 +44,8 @@
                             <tr>
                                 <td> {{ $Sup_category->id}}</td>
                                 <td> {{ $Sup_category->title}}</td>
-<<<<<<< HEAD
                                 <td> {{ $Sup_category->categoryID}}</td>
-
-=======
+                                @dd($Sup_category->Category->id)
                                 <td> {{ $Sup_category->category->title}}</td>
                                 <td>
                                     <form  action="{{ route('Sup_category.delete',$Sup_category->id) }}" method="POST">
@@ -62,7 +53,6 @@
                                         <button class="btn btn-primary" type="submit">حذف</button>
                                     </form>
                                 </td>
->>>>>>> 204e6bb5e07d424bcc066b3dc934aa48d5d6352f
                                 <td>
                                       <form action="{{ route('Sup_category.edit')}}" method="get">
                                         @csrf

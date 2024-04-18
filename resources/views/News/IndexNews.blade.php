@@ -51,7 +51,11 @@
                             <tr>
                                 <td> {{ $New->id}}</td>
                                 <td> {{ $New->title}}</td>
-                                <td> {{ $New->content}}</td>
+                                <td> 
+                                    <?php 
+                                echo $New->content ;
+                                    ?>
+                                </td>
                                 <td>
                                      <img src="{{asset($New->image_path)}}" height="180px" loading="lazy" alt="" >
                                  </td>

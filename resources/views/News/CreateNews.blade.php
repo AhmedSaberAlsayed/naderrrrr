@@ -105,10 +105,8 @@
                     <div class="row mb-3">
                         <label for="inputPassword3" class="col-sm-2 col-form-label">Choose a Sup_category</label>
                         <div class="col-sm-10">
-<<<<<<< HEAD
                             <select id="SupCategory" name="supCategoryID" placeholder="supCategoryID" class="form-select mb-3" aria-label="Default select example">
                               
-=======
                             <select name="supCategoryID" placeholder="supCategoryID" class="form-select mb-3" aria-label="Default select example">
                                 <option value="" disabled selected>Choose a Sup_category</option>
                                 @foreach ($Sup_categories as $Sup_category)
@@ -118,7 +116,6 @@
                                 <option value="{{$Sup_category->id}}"> {{$Sup_category->title}}</option>
                                 {{-- @endif --}}
                                  @endforeach
->>>>>>> bed11dd37a79d0070141e126583215f96b47e313
                             </select>
                         </div>
                     </div>

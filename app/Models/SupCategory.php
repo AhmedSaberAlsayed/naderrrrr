@@ -19,11 +19,7 @@ class SupCategory extends Model
 
     }
     public function Category(){
-        return $this->hasMany(Category::class,'id');
+        return $this->belongsTo(Category::class,'id');
     }
-<<<<<<< HEAD
-=======
 
-
->>>>>>> bed11dd37a79d0070141e126583215f96b47e313
 }

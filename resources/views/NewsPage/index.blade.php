@@ -46,15 +46,7 @@
                             <a href=""><i class="fab fa-twitter"></i></a>
                         </div>
                         <div class="navbar-nav ml-auto">
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-                                <div class="dropdown-menu">
-                                    <a href="#" class="dropdown-item">Sub Item 1</a>
-                                    <a href="#" class="dropdown-item">Sub Item 2</a>
-                                </div>
-                            </div>
-                            <a href="single-page.html" class="nav-item nav-link">Single Page</a>
-                            <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+
                                 <a href="index.html" class="nav-item nav-link active">الصفحه الرئسية</a>
                         </div>
 
@@ -130,11 +122,13 @@
         <!-- Top News End-->
 
         <!-- Category News Start-->
+        @foreach ($Categories as $Category)
+            
         <div class="cat-news">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <h2>Sports</h2>
+                        <h2>{{$Category->title}}</h2>
                         <div class="row cn-slider">
                             <div class="col-md-6">
                                 <div class="cn-img">
@@ -162,135 +156,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <h2>Technology</h2>
-                        <div class="row cn-slider">
-                            <div class="col-md-6">
-                                <div class="cn-img">
-                                    <img loading="lazy" src="NewsPage/img/news-350x223-4.jpg" />
-                                    <div class="cn-title">
-                                        <a href="">Lorem ipsum dolor sit</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="cn-img">
-                                    <img loading="lazy" src="NewsPage/img/news-350x223-5.jpg" />
-                                    <div class="cn-title">
-                                        <a href="">Lorem ipsum dolor sit</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="cn-img">
-                                    <img loading="lazy" src="NewsPage/img/news-350x223-1.jpg" />
-                                    <div class="cn-title">
-                                        <a href="">Lorem ipsum dolor sit</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
+
+        @endforeach
+
         <!-- Category News End-->
 
         <!-- Category News Start-->
-        <div class="cat-news">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2>Business</h2>
-                        <div class="row cn-slider">
-                            <div class="col-md-6">
-                                <div class="cn-img">
-                                    <img loading="lazy" src="NewsPage/img/news-350x223-5.jpg" />
-                                    <div class="cn-title">
-                                        <a href="">Lorem ipsum dolor sit</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="cn-img">
-                                    <img loading="lazy" src="NewsPage/img/news-350x223-4.jpg" />
-                                    <div class="cn-title">
-                                        <a href="">Lorem ipsum dolor sit</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="cn-img">
-                                    <img loading="lazy" src="NewsPage/img/news-350x223-3.jpg" />
-                                    <div class="cn-title">
-                                        <a href="">Lorem ipsum dolor sit</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h2>Business</h2>
-                        <div class="row cn-slider">
-                            <div class="col-md-6">
-                                <div class="cn-img">
-                                    <img loading="lazy" src="NewsPage/img/news-350x223-5.jpg" />
-                                    <div class="cn-title">
-                                        <a href="">Lorem ipsum dolor sit</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="cn-img">
-                                    <img loading="lazy" src="NewsPage/img/news-350x223-4.jpg" />
-                                    <div class="cn-title">
-                                        <a href="">Lorem ipsum dolor sit</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="cn-img">
-                                    <img loading="lazy" src="NewsPage/img/news-350x223-3.jpg" />
-                                    <div class="cn-title">
-                                        <a href="">Lorem ipsum dolor sit</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h2>Business</h2>
-                        <div class="row cn-slider">
-                            <div class="col-md-6">
-                                <div class="cn-img">
-                                    <img loading="lazy" src="NewsPage/img/news-350x223-5.jpg" />
-                                    <div class="cn-title">
-                                        <a href="">Lorem ipsum dolor sit</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="cn-img">
-                                    <img loading="lazy" src="NewsPage/img/news-350x223-4.jpg" />
-                                    <div class="cn-title">
-                                        <a href="">Lorem ipsum dolor sit</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="cn-img">
-                                    <img loading="lazy" src="NewsPage/img/news-350x223-3.jpg" />
-                                    <div class="cn-title">
-                                        <a href="">Lorem ipsum dolor sit</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+ 
         <!-- Category News End-->
         
         <!-- Tab News Start-->
@@ -593,15 +469,10 @@
             </div>
         </div>
         <!-- Main News End-->
-        
-        
-        
-        
+            
                 <!-- Footer Start -->
                 @include('NewsPage\Layouts\Footer')
                 <!-- Footer End -->
-
-        
 
         <!-- Back to Top -->
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>

@@ -17,7 +17,9 @@ class SupCategoryController extends Controller
     public function index()
     {
 
-        $Sup_Categories= SupCategory::with('category')->get();
+        $Sup_Categories= SupCategory::with('Category')->get();
+        // dd( $Sup_Categories[0]);
+        // dd( $Sup_Categories[0]->Category[0]->title);
         return view("Sup_Categories.IndexSup_Category",compact("Sup_Categories"));
     }
 
@@ -26,7 +28,7 @@ class SupCategoryController extends Controller
      */
     public function create()
     {
-        $categories=Category::with('category')->get();
+        $categories=Category::all();
         return view('Sup_Categories.CreateSup_Category',compact('categories'));
     }
 

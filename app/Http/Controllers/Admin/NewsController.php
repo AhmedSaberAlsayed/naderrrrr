@@ -28,21 +28,12 @@ class NewsController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
-        $categories=$this->getcategories();
-        // $getSup_Categories=$this->getSup_Categories();
-        // dd($categories);
-        return view('News.CreateNews',[
-            'categories' => $categories,
-            // 'getSup_Categories'=>$getSup_Categories,
-        ]);
-=======
+
         $categories=Category::get();
         $Sup_categories=SupCategory::with('category')->get();
         // dd($Sup_categories);
 
         return view('News.CreateNews',compact(['categories','Sup_categories']));
->>>>>>> bed11dd37a79d0070141e126583215f96b47e313
     }
 
 
