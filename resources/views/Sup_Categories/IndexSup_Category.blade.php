@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>عرض العناوين الفرعيه</title>
     @include('Dashboard\layouts\HeadDashboard')
 
 </head>
@@ -47,10 +47,10 @@
                                 <td> {{ $Sup_category->title}}</td>
                                 <td> {{ $Sup_category->category->title}}</td>
                                 <td>
-                                      <form  action="{{ route('Sup_category.delete',$Sup_category->id) }}" method="POST">
-                                    @csrf
-                                    <button class="btn btn-primary" type="submit">حذف</button>
-                                </form>
+                                    <form  action="{{ route('Sup_category.delete',$Sup_category->id) }}" method="POST">
+                                        @csrf
+                                        <button class="btn btn-primary" type="submit">حذف</button>
+                                    </form>
                                 </td>
                                 <td>
                                       <form action="{{ route('Sup_category.edit')}}" method="get">

@@ -15,6 +15,5 @@ class Category extends Model
     }
     public function SupCategory(){
         return $this->hasMany(SupCategory::class,'categoryID');
-
     }
 }

@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\News;
 use App\Models\Category;
+use App\Models\SupCategory;
 use Illuminate\Http\Request;
 use App\Http\Traits\ImagesTrait;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreNewsRequest;
 use App\Http\Requests\UpdateNewsRequest;
-use App\Models\SupCategory;
 
 class NewsController extends Controller
 {
@@ -28,12 +28,26 @@ class NewsController extends Controller
      */
     public function create()
     {
-        $categories=Category::get();
-        $Sup_categories=SupCategory::get();
-
-        return view('News.CreateNews',compact(['categories','Sup_categories']));
+        $categories=$this->getcategories();
+        // $getSup_Categories=$this->getSup_Categories();
+        // dd($categories);
+        return view('News.CreateNews',[
+            'categories' => $categories,
+            // 'getSup_Categories'=>$getSup_Categories,
+        ]);
     }
 
+
+    public function getCategories(){
+        $Categories= Category::get();
+        return $Categories;
+    }
+
+    public function getSup_Categories(Request $request){
+        $SupCategories= SupCategory::where('categoryID',$request->category_id)->get();// categoryID
+        
+        return response()->json($SupCategories);
+    }
     /**
      * Store a newly created resource in storage.
      */

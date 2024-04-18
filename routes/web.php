@@ -3,8 +3,8 @@
 use App\Models\SupCategory;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SupCategoryController;
 
 /*
@@ -51,6 +51,8 @@ Route::post('deleteSup_category/{id}',[SupCategoryController::class, 'destroy'])
 
 //  ++++++++++++++++++++++++ News ++++++++++++++++++++++++++++++++++++++++
 Route::get('createNews',[NewsController::class, 'create'])->name('News.create');
+Route::get('getCategories',[NewsController::class, 'getCategories'])->name('News.getCategories');
+Route::get('getSup_Categories',[NewsController::class, 'getSup_Categories'])->name('News.getSup_Categories');
 Route::post('storeNews',[NewsController::class, 'store'])->name('News.store');
 Route::get('indexNews' , [NewsController::class, 'index'])->name('News.index');
 Route::get('editNews',[NewsController::class, 'edit'])->name('News.edit');
