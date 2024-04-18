@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+
+use App\Models\News;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -13,8 +16,14 @@ class SupCategory extends Model
 
     public function News(){
         return $this->belongsTo(News::class);
+
     }
-    public function category(){
-        return $this->belongsTo(Category::class,'id');
+    public function Category(){
+        return $this->hasMany(Category::class,'id');
     }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> bed11dd37a79d0070141e126583215f96b47e313
 }

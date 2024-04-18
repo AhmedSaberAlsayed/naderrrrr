@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SupCategoryController;
+use App\Http\Controllers\NewsPage\NewsWebSiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,15 +24,15 @@ use App\Http\Controllers\Admin\SupCategoryController;
 
 
 
-Route::get('/', function () {
+Route::get('/Dashboard', function () {
     return view('Dashboard/index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 
 
 Route::get('createCategory',[CategoryController::class, 'create'])->name('category.create');
@@ -59,3 +60,23 @@ Route::get('editNews',[NewsController::class, 'edit'])->name('News.edit');
 Route::post('updateNews',[NewsController::class, 'update'])->name('News.update');
 Route::post('deleteNewsy/{id}',[NewsController::class, 'destroy'])->name('News.delete');
 require __DIR__.'/auth.php';
+});
+
+
+
+
+
+// +++++++++++++++++++++++++  the website      +++++++++++++++++++++++++++
+
+
+
+Route::get('/', [NewsWebSiteController::class, 'index'])->name('NewsPage.index');
+
+
+
+
+
+
+
+
+
