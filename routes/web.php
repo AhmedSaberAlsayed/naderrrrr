@@ -34,7 +34,7 @@ use App\Http\Controllers\NewsPage\NewsWebSiteController;
 // });
 
 
-Route::get('/thedashboard', function () {
+Route::get('/', function () {
     return view('Dashboard/index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
