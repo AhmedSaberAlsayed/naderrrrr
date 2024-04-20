@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories= Category::get();
+        $categories= Category::orderBy('created_at', 'DESC')->get();
         return view("categories.IndexCategory",compact("categories"));
     }
 

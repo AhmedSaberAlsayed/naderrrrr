@@ -33,10 +33,11 @@
                     <table class="table text-center">
                         <thead>
                             <tr>
+                                <th>#</th>
                                 <th>العنوان الفرعي</th>
                                 <th>العنوان الرئيسي</th>
-                                <th>حذف</th>
                                 <th>تعديل</th>
+                                <th>حذف</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -44,15 +45,8 @@
                             <tr>
                                 <td> {{ $Sup_category->id}}</td>
                                 <td> {{ $Sup_category->title}}</td>
-                                <td> {{ $Sup_category->categoryID}}</td>
-                                @dd($Sup_category->Category->id)
                                 <td> {{ $Sup_category->category->title}}</td>
-                                <td>
-                                    <form  action="{{ route('Sup_category.delete',$Sup_category->id) }}" method="POST">
-                                        @csrf
-                                        <button class="btn btn-primary" type="submit">حذف</button>
-                                    </form>
-                                </td>
+                
                                 <td>
                                       <form action="{{ route('Sup_category.edit')}}" method="get">
                                         @csrf
@@ -62,11 +56,10 @@
                                 </td>
                                 <td>
                                     <form  action="{{ route('Sup_category.delete',$Sup_category->id) }}" method="POST">
-                                  @csrf
-                                  {{-- <input type="hidden" name="category_id" value="{{ $category->id }}"> --}}
-                                  <button class="btn btn-primary" type="submit">حذف</button>
-                              </form>
-                              </td>
+                                    @csrf
+                                    <button class="btn btn-primary" type="submit">حذف</button>
+                                    </form>
+                                </td>
                             </tr>
                              @endforeach
                         </tbody>

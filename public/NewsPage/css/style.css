@@ -5,6 +5,7 @@
 :root {
     --main-color: #860001;
     --mainv2-color: #ffed99;
+    --mainv3-color:#fff6c3;
 
 }
 
@@ -15,8 +16,14 @@ body {
     background: var(--mainv2-color);
 }
 
+.pagination-wrapper a{
+    color:var(--mainv2-color) !important ;
+    background-color:var(--main-color) !important ;
+}
+.pagination-wrapper ul .active{
+}
 a {
-    color: var(--main-color);
+    color: var(--main-color) ;
     transition: 0.5s;
 }
 

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,10 @@ class SupCategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title'=> $this->faker->name(),
+            'categoryID'=>Category::all()->random(),
+
+     
         ];
     }
 }

@@ -12,9 +12,9 @@ class Category extends Model
 {
     use HasFactory;
     protected $fillable = ['title'];
-    public function News(){
 
-        return $this->belongsTo(News::class,);
+    public function News(){
+        return $this->hasMany(News::class,'categoryID');
 
     }
     public function SupCategory(){

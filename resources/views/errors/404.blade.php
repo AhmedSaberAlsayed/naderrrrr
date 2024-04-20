@@ -15,7 +15,7 @@
                         <h1 class="display-1 fw-bold">404</h1>
                         <h1 class="mb-4">الصفحه غير موجوده</h1>
 
-                        <a class="btn btn-primary rounded-pill py-3 px-5" href="{{route('dashboard')}}">العوده الي الصفحة الرئسيه</a>
+                        <a class="btn btn-primary rounded-pill py-3 px-5" href="{{route('NewsPage.index')}}">العوده الي الصفحة الرئسيه</a>
                     </div>
                 </div>
             <!-- 404 End -->

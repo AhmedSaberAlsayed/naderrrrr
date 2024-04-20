@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
+use App\Models\Category;
+use App\Models\SupCategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +20,24 @@ class NewsFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+
+
+            'title'=> $this->faker->title(),
+            'content'=> $this->faker->text(),
+            'image_path'=> '1713624472.png',
+            'keyWords'=> $this->faker->name(),
+            'timeReading'=> $this->faker->numerify(),
+            'createdBy'=>'1',
+
+            'categoryID'=>Category::all()->random(),
+            'supCategoryID'=>SupCategory::all()->random(),
+
+
+
+
+
+
+
         ];
     }
 }

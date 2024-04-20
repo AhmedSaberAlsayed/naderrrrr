@@ -27,7 +27,7 @@ class StoreNewsRequest extends FormRequest
             'image_path'=> "required",
             'keyWords'=> "required",
             'timeReading'=> "required",
-            'createdBy'=> "required",
+            // 'createdBy'=> "required",
             'categoryID'=> "required",
             
         ];

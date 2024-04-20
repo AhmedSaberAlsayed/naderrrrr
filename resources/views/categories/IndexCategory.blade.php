@@ -37,19 +37,20 @@
                         <td> {{ $category->id}}</td>
                         <td> {{ $category->title}}</td>
                         <td>
+                            <form action="{{ route('category.edit')}}" method="get">
+                                    @csrf
+                                    <input type="hidden" name="category_id" value="{{ $category->id }}">
+                                    <button class="btn btn-light"  type="submit">تعديل</button>
+                            </form>
+                        </td>
+                        <td>
                             <form  action="{{ route('category.delete',$category->id) }}" method="POST">
                                 @csrf
                                 {{-- <input type="hidden" name="category_id" value="{{ $category->id }}"> --}}
                                 <button class="btn btn-primary"  type="submit">حذف</button>
                             </form>
                         </td>
-                        <td>
-                            <form action="{{ route('category.edit')}}" method="get">
-                                    @csrf
-                                    <input type="hidden" name="category_id" value="{{ $category->id }}">
-                                    <button class="btn btn-primary"  type="submit">تعديل</button>
-                            </form>
-                        </td>
+
                     </tr>
                 @endforeach
             </tbody>

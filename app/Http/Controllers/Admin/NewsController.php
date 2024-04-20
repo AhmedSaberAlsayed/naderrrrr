@@ -8,6 +8,7 @@ use App\Models\SupCategory;
 use Illuminate\Http\Request;
 use App\Http\Traits\ImagesTrait;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreNewsRequest;
 use App\Http\Requests\UpdateNewsRequest;
 
@@ -19,7 +20,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $News= News::get();
+        $News= News::with('Category','User','SupCategory')->orderBy('created_at', 'DESC')->get();
         return view("News.IndexNews",compact("News"));
     }
 
@@ -60,7 +61,7 @@ class NewsController extends Controller
             'image_path'=> $fileName,
             'keyWords'=> $request->keyWords,
             'timeReading'=> $request->timeReading,
-            'createdBy'=> $request->createdBy,
+            'createdBy'=> Auth::user()->id,
             'categoryID'=> $request->categoryID,
             'supCategoryID'=> $request->supCategoryID,
 

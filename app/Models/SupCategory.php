@@ -19,7 +19,7 @@ class SupCategory extends Model
 
     }
     public function Category(){
-        return $this->belongsTo(Category::class,'id');
+        return $this->belongsTo(Category::class,'categoryID');
     }
 
 }

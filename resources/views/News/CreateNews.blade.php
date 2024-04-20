@@ -79,7 +79,16 @@
                     <div class="row mb-3">
                         <label for="inputPassword3" class="col-sm-2 col-form-label">createdBy</label>
                         <div class="col-sm-10">
-                            <input type="text" name="createdBy" placeholder="createdBy" class="form-control" id="inputPassword3">
+
+
+                        {{-- <select name="createdBy" id="inputPassword3" disabled placeholder="" class="form-select " aria-label="Default select example">
+                                <option value="{{Auth::user()->id}}" selected>{{Auth::user()->name}}</option>
+                        </select> --}}
+
+
+                            {{-- <input type="text"value="{{Auth::user()->name}}" name="show" placeholder="createdBy" disabled class="form-control" id="inputPassword3"> --}}
+                            {{-- <input type="he"value="{{Auth::user()->name}}" name="createdBy" placeholder="createdBy" disabled class="form-control" id="inputPassword3"> --}}
+                            <input type="hidden"type="he"value="{{Auth::user()->id}}" name="createdBy" placeholder="createdBy" disabled class="form-control" id="inputPassword3">
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -99,7 +108,6 @@
               
                                  @endforeach
                             </select>
-                            {{ $Category->id}}
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -108,14 +116,11 @@
                             <select id="SupCategory" name="supCategoryID" placeholder="supCategoryID" class="form-select mb-3" aria-label="Default select example">
                               
                             <select name="supCategoryID" placeholder="supCategoryID" class="form-select mb-3" aria-label="Default select example">
-                                <option value="" disabled selected>Choose a Sup_category</option>
-                                @foreach ($Sup_categories as $Sup_category)
-                                {{-- @dd($Sup_category->category) --}}
-                                {{-- @if ($Sup_category->category->id == $Category->id) --}}
+                                {{-- <option value="" selected> a Sup_category</option> --}}
+                                {{-- @foreach ($Sup_categories as $Sup_category) --}}
+                                {{-- <option value="{{$Sup_category->id}}"> {{$Sup_category->title}} </option> --}}
                                     
-                                <option value="{{$Sup_category->id}}"> {{$Sup_category->title}}</option>
-                                {{-- @endif --}}
-                                 @endforeach
+                                 {{-- @endforeach --}}
                             </select>
                         </div>
                     </div>
@@ -125,7 +130,7 @@
     </form>
     <script>
         $('#summernote').summernote({
-        placeholder: 'Hello Bootstrap 4',
+        placeholder: 'content',
         tabsize: 2,
         height: 100
       });

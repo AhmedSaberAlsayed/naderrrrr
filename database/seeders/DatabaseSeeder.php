@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\News;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Category;
@@ -21,6 +22,23 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@halaketwasl.com',
             'password' =>  Hash::make('adminhalaket123'),
         ]);
+        
+        Category::factory()
+        ->count(5)
+        ->hasSupCategory(0)
+        ->create();
+        Category::factory()
+        ->count(5)
+        ->hasSupCategory(3)
+        ->create();
+
+        News::factory()
+        ->count(100)
+        ->create();
+ 
+
+ 
+
 
     }
 }

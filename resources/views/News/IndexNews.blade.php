@@ -57,13 +57,20 @@
                                     ?>
                                 </td>
                                 <td>
-                                     <img src="{{asset($New->image_path)}}" height="180px" loading="lazy" alt="" >
+                                    <img src="{{asset($New->image_path)}}" height="180px" loading="lazy" alt="" >
                                  </td>
                                 <td> {{ $New->keyWords}}</td>
                                 <td> {{ $New->timeReading}}</td>
-                                <td> {{ $New->createdBy}}</td>
-                                <td> {{ $New->categoryID}}</td>
-                                <td> {{ $New->supCategoryID}}</td>
+                                <td> {{ $New->user->name}}</td>
+                                <td> {{ $New->category->title}}</td>
+                                <td> <?php 
+                                if (isset($New->SupCategory->title)) {
+                                    echo $New->SupCategory->title;
+                                }else {
+                                    echo 'noooo';
+                                }
+                                    ?>
+                                </td>
                                 <td>
                                       <form  action="{{ route('News.delete',$New->id) }}" method="POST">
                                     @csrf
@@ -75,16 +82,11 @@
                                         @csrf
                                          <input type="hidden" name="News_id" value="{{ $New->id }}">
                                         <button class="btn btn-primary"  type="submit">تعديل</button>
-                                     </form>
+                                    </form>
 
                                 </td>
                             </tr>
-
-
-
-
-
-                             @endforeach
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

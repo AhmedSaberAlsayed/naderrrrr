@@ -17,7 +17,7 @@ class SupCategoryController extends Controller
     public function index()
     {
 
-        $Sup_Categories= SupCategory::with('Category')->get();
+        $Sup_Categories= SupCategory::with('category')->orderBy('created_at', 'DESC')->get();
         // dd( $Sup_Categories[0]);
         // dd( $Sup_Categories[0]->Category[0]->title);
         return view("Sup_Categories.IndexSup_Category",compact("Sup_Categories"));
