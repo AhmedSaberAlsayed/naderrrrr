@@ -49,7 +49,6 @@
                     <div class="col-md-6 tn-left">
                         <div class="row tn-slider">
                     @php
-                                $theloop=0;
                             for ($i=0; $i < 6; $i++) { 
                                 echo '
                                 <div class="col-md-6">
@@ -60,8 +59,7 @@
                                     "
                                      />
                                     <div class="tn-title">
-                                        <a href="/news/
-                                        ';
+                                        <a href="/news/';
                                         echo $TheTopNews[$i]->id;
                                         echo'">';
                                         echo $TheTopNews[$i]->title;
@@ -72,7 +70,7 @@
                             </div>';
 
 
-                                $theloop++;
+                                
                             }
                         
                     @endphp
@@ -83,7 +81,7 @@
                     <div class="col-md-6 tn-right">
                         <div class="row">
                             @php
-                            for ($i=$theloop; $i <10 ; $i++) { 
+                            for ($i=6; $i <10 ; $i++) { 
                                 echo'
                                 <div class="col-md-6">
                                     <div class="tn-img">
@@ -124,7 +122,7 @@
                 <div class="row">
                     @foreach ($Categories as $Category)
                     <div class="col-md-6">
-                        <h2>{{$Category->title}}</h2>
+                        <h2><a href="/category/{{$Category->id}}">{{$Category->title}}</a></h2>
                         
                         <div class="row cn-slider">
                             @foreach ($Category->News as $TheNews)
@@ -155,8 +153,8 @@
         <!-- Category News Start-->
  
         <!-- Category News End-->
-        
-    
+
+  
 
         <!-- Main News Start-->
         <div  class="main-news mt-5">

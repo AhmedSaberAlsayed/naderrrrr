@@ -13,8 +13,11 @@
                 </div>
                 <div class="navbar-nav ml-auto">
 
-                        <a href="index.html" class="nav-item nav-link active">الصفحه الرئسية</a>
-                </div>
+                        <a href="{{route('NewsPage.index')}}" class="nav-item nav-link active">الصفحه الرئسية</a>
+
+                        
+                    </div>
+
 
             </div>
         </nav>

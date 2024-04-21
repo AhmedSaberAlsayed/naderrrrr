@@ -24,17 +24,14 @@ use App\Http\Controllers\NewsPage\NewsWebSiteController;
 
 
     Route::get('/', [NewsWebSiteController::class, 'index'])->name('NewsPage.index');
-    Route::get('/news/{news}',[NewsWebSiteController::class, 'show']);
+    Route::get('/news/{news}',[NewsWebSiteController::class, 'show'])->name('NewsPage.show');
+    Route::get('/category/{Category}',[NewsWebSiteController::class, 'CategoryShow'])->name('CategoryPage.index');
     // Route::post('deleteNewsy/{id}',[NewsController::class, 'destroy'])->name('News.delete');
 
-// Route::controller(NewsWebSiteController::class)->group(function () {
-//     Route::get('/', 'index')->name('NewsPage.index');
-//     Route::get('/news/{id}', 'show');
-//     // Route::get('/orders/{id}', 'show');
-// });
 
 
-Route::get('/', function () {
+
+Route::get('/thedashboard', function () {
     return view('Dashboard/index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 

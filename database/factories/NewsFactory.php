@@ -23,7 +23,7 @@ class NewsFactory extends Factory
 
 
             'title'=> $this->faker->title(),
-            'content'=> $this->faker->text(),
+            'content'=> $this->faker->text(20000),
             'image_path'=> '1713624472.png',
             'keyWords'=> $this->faker->name(),
             'timeReading'=> $this->faker->numerify(),

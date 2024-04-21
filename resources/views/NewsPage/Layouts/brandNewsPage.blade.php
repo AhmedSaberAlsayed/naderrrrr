@@ -11,7 +11,7 @@
             <div class="col-lg-6 col-md-4">
                 <div class="b-logo">
                     <a href="{{route('News.edit')}}">
-                        <img src="logo.png" alt="Logo">
+                        <img src="/logo.png" alt="Logo">
                     </a>
                 </div>
             </div>
