@@ -18,8 +18,6 @@ class SupCategoryController extends Controller
     {
 
         $Sup_Categories= SupCategory::with('category')->orderBy('created_at', 'DESC')->get();
-        // dd( $Sup_Categories[0]);
-        // dd( $Sup_Categories[0]->Category[0]->title);
         return view("Sup_Categories.IndexSup_Category",compact("Sup_Categories"));
     }
 
