@@ -7,9 +7,9 @@
 
 
     <body >
-        
+
         <!-- Brand Start -->
-    
+
 @include('NewsPage\Layouts\brandNewsPage')
 
         <!-- Brand End -->
@@ -50,15 +50,17 @@
             <div class="container">
                 <div class="row">
                     @if (isset($SupCategory))
-                        
+
                     @foreach ($SupCategory as $TheSupCategory)
                     <div class="col-md-6">
                         <h2><a href="#">{{$TheSupCategory->title}}</a></h2>
-                        
+
                         <div class="row cn-slider">
                             {{-- @dd(TheSupCategory) --}}
+                            @if (isset($TheSupCategory->News))
+
                             @foreach ($TheSupCategory->News as $TheNews)
-                                
+
                             <div class="col-md-6">
                                 <div class="cn-img">
                                     <img loading="lazy"  src="{{$TheNews->image_path}}" />
@@ -69,35 +71,36 @@
                             </div>
 
                             @endforeach
+                            @endif
                         </div>
 
                     </div>
-                    
+
                     @endforeach
                     @endif
 
                 </div>
             </div>
         </div>
-        
+
         @endif
 
         <!-- Category News End-->
 
         <!-- Category News Start-->
- 
+
         <!-- Category News End-->
 
-  
+
 
         <!-- Main News Start-->
         <div  class="main-news mt-5">
             <div class="container">
                 <div class="row">
                     <div  class="col-lg-12">
-                    <h2  style=" 
-                    
-                    direction:rtl;   
+                    <h2  style="
+
+                    direction:rtl;
                     color: #000000;
                     margin-bottom: 30px;
                     padding-bottom: 15px;
@@ -116,7 +119,7 @@
                                 </div>
                             @endforeach
 
-     
+
                         </div>
                     </div>
 
@@ -129,7 +132,7 @@
             </div>
         </div>
         <!-- Main News End-->
-            
+
                 <!-- Footer Start -->
                 @include('NewsPage\Layouts\Footer')
                 <!-- Footer End -->

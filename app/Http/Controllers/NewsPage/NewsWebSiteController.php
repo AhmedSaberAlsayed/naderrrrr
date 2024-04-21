@@ -11,7 +11,7 @@ use  Illuminate\Database\Eloquent\Builder;
 
 class NewsWebSiteController extends Controller
 {
-    
+
     public function index()
     {
         $Categories=Category::with('SupCategory','News')->orderBy('created_at', 'DESC')->get();
@@ -45,7 +45,7 @@ class NewsWebSiteController extends Controller
         // $ThePaginateCategory= Category::where('id',$category->id )->with('News','SupCategory')->get();
         $News= News::where('categoryID',$category->id )->paginate(16);
         $SupCategory=SupCategory::where('categoryID',$category->id )->with('News')->get();
-        dd($SupCategory);
+        // dd($SupCategory);
         // لوب علي السب كاتجري عشان تطبع كل اخبارهم
         // $AnotherNewsInThisCategory= News::with('Category')->where('categoryID', $news->categoryID)->inRandomOrder()->limit(5)->get();
         // $AllCategory=Category::with('News')->get();
@@ -55,5 +55,5 @@ class NewsWebSiteController extends Controller
 
     }
 
-    
+
 }

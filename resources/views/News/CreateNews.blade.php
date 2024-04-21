@@ -21,7 +21,7 @@
 
         {{-- @dd($categories) --}}
         <!-- Spinner Start -->
-        {{-- @include('Dashboard\layouts\Spinner') --}}
+        @include('Dashboard\layouts\Spinner')
         <!-- Spinner End -->
 
         <!-- Sidebar Start -->
@@ -44,27 +44,26 @@
             <div class="bg-secondary rounded h-100 p-4">
                 <h6 class="mb-4">Horizontal Form</h6>
                 <div ></div>
-               
-               
-               
+
+
+
                 <form action="{{ route('News.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
 
                     <div class="row mb-3">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">title</label>
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">العنوان</label>
                         <div class="col-sm-10">
                             <input type="text" name="title" placeholder="title" class="form-control" id="inputEmail3">
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">content</label>
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">المحتوي</label>
                         <div class="col-sm-10">
-                            <textarea id="summernote" name="content" placeholder="content" class="form-control"></textarea>
-                            {{-- <input type="text" style="  color: white;" id="summernote" name="content" placeholder="content" class="form-control" > --}}
+                            <textarea id="summernote" name="content"  class="form-control"></textarea>
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">keyWords</label>
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">الكلمات الداله</label>
                         <div class="col-sm-10">
                             <input type="text" name="keyWords" placeholder="keyWords" class="form-control" id="inputEmail3">
                         </div>
@@ -77,50 +76,27 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="inputPassword3" class="col-sm-2 col-form-label">createdBy</label>
-                        <div class="col-sm-10">
-
-
-                        {{-- <select name="createdBy" id="inputPassword3" disabled placeholder="" class="form-select " aria-label="Default select example">
-                                <option value="{{Auth::user()->id}}" selected>{{Auth::user()->name}}</option>
-                        </select> --}}
-
-
-                            {{-- <input type="text"value="{{Auth::user()->name}}" name="show" placeholder="createdBy" disabled class="form-control" id="inputPassword3"> --}}
-                            {{-- <input type="he"value="{{Auth::user()->name}}" name="createdBy" placeholder="createdBy" disabled class="form-control" id="inputPassword3"> --}}
-                            <input type="hidden"type="he"value="{{Auth::user()->id}}" name="createdBy" placeholder="createdBy" disabled class="form-control" id="inputPassword3">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="inputPassword3" class="col-sm-2 col-form-label">Choose a image</label>
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">اختار الصوره</label>
                         <div class="col-sm-10">
                             <input class="form-control bg-dark" name="image_path" placeholder="image_path"  type="file" id="formFile">
-                            {{-- <input type="text" name="createdBy" placeholder="createdBy" class="form-control" id="inputPassword3"> --}}
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="inputPassword3" class="col-sm-2 col-form-label">Choose a category</label>
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">اختار العنوان الرئيسي</label>
                         <div class="col-sm-10">
                             <select id="category" name="categoryID" placeholder="category" class="form-select mb-3" aria-label="Default select example">
-                                <option value="" disabled selected>Choose a category</option>
+                                <option value="" disabled selected>اختار العنوان الرئيسي</option>
                                 @foreach ($categories as $Category)
                                 <option value="{{$Category->id}}">{{$Category->title}}</option>
-              
                                  @endforeach
                             </select>
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="inputPassword3" class="col-sm-2 col-form-label">Choose a Sup_category</label>
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">اختارالعنوان الفرعي</label>
                         <div class="col-sm-10">
                             <select id="SupCategory" name="supCategoryID" placeholder="supCategoryID" class="form-select mb-3" aria-label="Default select example">
-                              
-                            <select name="supCategoryID" placeholder="supCategoryID" class="form-select mb-3" aria-label="Default select example">
-                                {{-- <option value="" selected> a Sup_category</option> --}}
-                                {{-- @foreach ($Sup_categories as $Sup_category) --}}
-                                {{-- <option value="{{$Sup_category->id}}"> {{$Sup_category->title}} </option> --}}
-                                    
-                                 {{-- @endforeach --}}
+
                             </select>
                         </div>
                     </div>
@@ -130,7 +106,7 @@
     </form>
     <script>
         $('#summernote').summernote({
-        placeholder: 'content',
+        placeholder: 'Write the content...',
         tabsize: 2,
         height: 100
       });
@@ -140,9 +116,9 @@
     $('#category').on('change', function() {
         var categoryID = $(this).val(); // Corrected to get the value of the selected option
         console.log(categoryID);
-        
+
         $('#SupCategory').html(''); // Clear the existing options in #SupCategory dropdown
-        
+
         $.ajax({
             url: '{{ route('News.getSup_Categories') }}', // Use proper route syntax
             type: 'GET',
@@ -150,7 +126,7 @@
                 category_id: categoryID // Pass category_id as a parameter
             },
             success: function(SupCategories) {
-                $('#SupCategory').html('<option value="">Select subcategory</option>'); // Set initial prompt text
+                $('#SupCategory').html('<option value="">اختارالعنوان الفرعي</option>'); // Set initial prompt text
 
                 // Loop through each SupCategory and append to #SupCategory dropdown
                 $.each(SupCategories, function(key, value) {
@@ -164,8 +140,8 @@
     });
 });
     </script>
-   
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> 
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     @include('Dashboard\layouts\Footer')
     @include('Dashboard\layouts\JSScript')
 </body>

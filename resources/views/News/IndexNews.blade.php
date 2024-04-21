@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
     @include('Dashboard\layouts\HeadDashboard')
 
+</head>
 <body>
     <div class="container-fluid position-relative d-flex p-0">
 
@@ -25,6 +30,9 @@
             <div class="bg-secondary rounded h-100 p-4">
                 <h6 class="mb-4">Responsive Table</h6>
                 <div class="table-responsive">
+                    @if(Session::has('success'))
+                    <p class="alert alert-success">{{ Session::get('success') }}</p>
+                @endif
                     <table class="table">
                         <thead>
                             <tr>
@@ -46,25 +54,22 @@
                             <tr>
                                 <td> {{ $New->id}}</td>
                                 <td> {{ $New->title}}</td>
-                                <td> 
-                                    {{Str::limit($New->content, 90)}}
-                                    
-                                </td>
+                                <td> @php
+                                         echo $New->content;
+                                     @endphp </td>
                                 <td>
-                                    <img src="{{asset($New->image_path)}}" height="180px" loading="lazy" alt="" >
+                                     <img src="{{asset($New->image_path)}}" height="180px" loading="lazy" alt="" >
                                  </td>
                                 <td> {{ $New->keyWords}}</td>
                                 <td> {{ $New->timeReading}}</td>
                                 <td> {{ $New->user->name}}</td>
-                                <td> {{ $New->category->title}}</td>
-                                <td> <?php 
-                                if (isset($New->SupCategory->title)) {
-                                    echo $New->SupCategory->title;
-                                }else {
-                                    echo 'noooo';
-                                }
-                                    ?>
-                                </td>
+                                <td> {{ $New->Category->title}}</td>
+                                @if (isset($New->SupCategory))
+
+                                <td> {{ $New->SupCategory->title}}</td>
+
+
+                                @endif
                                 <td>
                                       <form  action="{{ route('News.delete',$New->id) }}" method="POST">
                                     @csrf
@@ -76,19 +81,15 @@
                                         @csrf
                                          <input type="hidden" name="News_id" value="{{ $New->id }}">
                                         <button class="btn btn-primary"  type="submit">تعديل</button>
-                                    </form>
+                                     </form>
 
                                 </td>
                             </tr>
-                            @endforeach
+                             @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
-  
-
-
-         
     @include('Dashboard\layouts\Footer')
 
     @include('Dashboard\layouts\JSScript')
