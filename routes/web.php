@@ -25,7 +25,7 @@ use App\Http\Controllers\NewsPage\NewsWebSiteController;
 
     Route::get('/', [NewsWebSiteController::class, 'index'])->name('NewsPage.index');
     Route::get('/news/{news}',[NewsWebSiteController::class, 'show'])->name('NewsPage.show');
-    Route::get('/category/{Category}',[NewsWebSiteController::class, 'CategoryShow'])->name('CategoryPage.index');
+    Route::get('/category/{category}',[NewsWebSiteController::class, 'CategoryShow'])->name('CategoryPage.index');
     // Route::post('deleteNewsy/{id}',[NewsController::class, 'destroy'])->name('News.delete');
 
 

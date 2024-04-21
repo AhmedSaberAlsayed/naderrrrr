@@ -4,6 +4,7 @@ namespace App\Http\Controllers\NewsPage;
 
 use App\Models\News;
 use App\Models\Category;
+use App\Models\SupCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use  Illuminate\Database\Eloquent\Builder;
@@ -37,15 +38,19 @@ class NewsWebSiteController extends Controller
     public function CategoryShow(Category $category)
     {
 
+        // dd($category );
+        // $TheCategory=Category::find($category);
         // $TheCategory=Category::all();
-        $TheCategory= Category::with('News','SupCategory')->where('id',$category->id )->get();
-        $ThePaginateCategory= Category::where('id',$category->id )->with('News','SupCategory')->paginate(5);
-        $News= News::where('categoryID',$category->id )->get();
-        dd($ThePaginateCategory);
+        // $TheCategory= Category::with('News','SupCategory')->where('id',$category->id )->get();
+        // $ThePaginateCategory= Category::where('id',$category->id )->with('News','SupCategory')->get();
+        $News= News::where('categoryID',$category->id )->paginate(16);
+        $SupCategory=SupCategory::where('categoryID',$category->id )->with('News')->get();
+        dd($SupCategory);
+        // لوب علي السب كاتجري عشان تطبع كل اخبارهم
         // $AnotherNewsInThisCategory= News::with('Category')->where('categoryID', $news->categoryID)->inRandomOrder()->limit(5)->get();
         // $AllCategory=Category::with('News')->get();
         // $CountNews=Category::with('News')->count();
-        return view("NewsPage.Category",compact('TheCategory','News','ThePaginateCategory'));
+        return view("NewsPage.Category",compact('category','News','SupCategory'));
 
 
     }

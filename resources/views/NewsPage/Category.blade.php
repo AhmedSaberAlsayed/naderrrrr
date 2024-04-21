@@ -44,7 +44,43 @@
         <!-- Top News End-->
 
         <!-- Category News Start-->
+        @if ($News->currentPage()==1)
 
+        <div class="cat-news">
+            <div class="container">
+                <div class="row">
+                    @if (isset($SupCategory))
+                        
+                    @foreach ($SupCategory as $TheSupCategory)
+                    <div class="col-md-6">
+                        <h2><a href="#">{{$TheSupCategory->title}}</a></h2>
+                        
+                        <div class="row cn-slider">
+                            {{-- @dd(TheSupCategory) --}}
+                            @foreach ($TheSupCategory->News as $TheNews)
+                                
+                            <div class="col-md-6">
+                                <div class="cn-img">
+                                    <img loading="lazy"  src="{{$TheNews->image_path}}" />
+                                    <div class="cn-title" >
+                                        <a  href="/news/{{$TheNews->id}}">{{$TheNews->title}}</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @endforeach
+                        </div>
+
+                    </div>
+                    
+                    @endforeach
+                    @endif
+
+                </div>
+            </div>
+        </div>
+        
+        @endif
 
         <!-- Category News End-->
 
@@ -65,14 +101,14 @@
                     color: #000000;
                     margin-bottom: 30px;
                     padding-bottom: 15px;
-                    border-bottom: 3px double #000000;">الاخبار</h2>
+                    border-bottom: 3px double #000000;">الاخبار {{$category->title}}</h2>
                         <div class="row">
-                            {{-- @dd($TheCategory) --}}
-                            @foreach ($News as $TheNews)
+                            {{-- @dd($category->id) --}}
+                            @foreach ($category->news as $TheNews)
 
                                 <div class="col-md-3 mb-4">
                                     <div class="mn-img">
-                                        <img loading="lazy" src="{{$TheNews->image_path}}" />
+                                        <img loading="lazy" src="/{{$TheNews->image_path}}" />
                                         <div class="mn-title">
                                             <a href="/news/{{$TheNews->id}}">{{$TheNews->title}}</a>
                                         </div>
